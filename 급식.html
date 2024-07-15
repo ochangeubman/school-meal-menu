@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Meal Menu</title>
+</head>
+<body>
+    <h1>School Meal Menu</h1>
+    <label for="date">Select a date:</label>
+    <input type="date" id="date">
+    <button onclick="showMenu()">Show Menu</button>
+
+    <h2 id="date-header"></h2>
+    <h3>아침</h3>
+    <p id="breakfast"></p>
+    <h3>점심</h3>
+    <p id="lunch"></p>
+    <h3>저녁</h3>
+    <p id="dinner"></p>
+
+    <script>
+        const menuData = {
+            "2024-07-15": {
+                "breakfast": "찹쌀밥, 돈육김치찌개, 메추리알장조림, 치즈연어스테이크/과일소스, 배추김치, 딸기우유, 에그타르트",
+                "lunch": "쌀밥, 설렁탕, 오이깍두기무침, 깐쇼새우/레몬크림소스, 깍두기, 수박",
+                "dinner": "쌀밥, 닭볶음탕, 가지나물, 햄전, 배추김치, 붕어싸만코"
+            },
+            "2024-07-16": {
+                "breakfast": "쌀밥, 쇠고기해장국, 애호박새우젓볶음, 갈치구이, 배추김치, 마늘토스트, 우유",
+                "lunch": "카레라이스, 애배추된장국, 토마토바질페스토샐러드, 닭가슴살치킨, 배추김치, 봉어싸만코",
+                "dinner": "쌀밥, 쇠고기미역국, 매운갈비찜, 청포묵무침, 배추김치, 자두맛음료"
+            },
+            "2024-07-17": {
+                "breakfast": "찹쌀밥, 물만둣국, 애배추나물, 알감자구이, 배추김치, 비요뜨",
+                "lunch": "차슈수밥, 돈육김치찌개, 오리훈제, 부추오이겨자무침, 배추김치, 무쌈, 오렌지주스",
+                "dinner": "작은밥, 초계냉국, 목살스테이크야채구이소스, 배추김치, 방울토마토"
+            },
+            "2024-07-18": {
+                "breakfast": "전복야채죽, 무말랭이무침, 배추김치, 오렌지주스, 어니언베이글/크림치즈/블루베리",
+                "lunch": "날치알비건김치볶음밥, 우동, 깍두기, 비건당면만두, 혼합과즙음료",
+                "dinner": "쌀밥, 콩나물김치국, 감자샐러드, 깐풍옥/소스, 깍두기, 수박"
+            },
+            "2024-07-19": {
+                "breakfast": "찹쌀밥, 닭배추국, 어묵야채볶음, 스크램블에그, 배추김치, 마늘바게트볼, 바나나우유",
+                "lunch": "쌀밥, 설렁탕, 오이깍두기무침, 깐쇼새우/레몬크림소스, 깍두기, 수박",
+                "dinner": "쌀밥, 닭볶음탕, 가지나물, 햄전, 배추김치, 붕어싸만코"
+            }
+        };
+
+        function showMenu() {
+            const date = document.getElementById('date').value;
+            const menu = menuData[date];
+
+            if (menu) {
+                document.getElementById('date-header').innerText = `Menu for ${date}`;
+                document.getElementById('breakfast').innerText = menu.breakfast;
+                document.getElementById('lunch').innerText = menu.lunch;
+                document.getElementById('dinner').innerText = menu.dinner;
+            } else {
+                document.getElementById('date-header').innerText = `No menu available for ${date}`;
+                document.getElementById('breakfast').innerText = '';
+                document.getElementById('lunch').innerText = '';
+                document.getElementById('dinner').innerText = '';
+            }
+        }
+    </script>
+</body>
+</html>
